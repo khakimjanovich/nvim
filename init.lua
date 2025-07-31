@@ -31,4 +31,11 @@ require("lazy").setup({
 			format_on_save = { timeout_ms = 2000, lsp_fallback = true },
 		},
 	},
+
+	{
+		"williamboman/mason.nvim",
+		cmd = "Mason",
+		build = ":MasonUpdate",
+		opts = {},
+	},
 })

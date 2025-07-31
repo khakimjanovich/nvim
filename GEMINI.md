@@ -1,0 +1,1 @@
+When the user asks to 'push', I must first commit any staged changes. The commit message must follow the Conventional Commits specification (https://www.conventionalcommits.org/en/v1.0.0/). After a successful commit, I must then push the changes to the remote repository.
