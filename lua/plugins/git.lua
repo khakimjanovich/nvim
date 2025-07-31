@@ -6,7 +6,7 @@ return {
 
   -- This plugin provides a powerful terminal UI for git.
   {
-    'jesseduffield/lazygit.nvim',
+    'kdheepak/lazygit.nvim',
     -- We are setting a keymap to open lazygit.
     keys = {
       { '<leader>gg', '<cmd>LazyGit<cr>', desc = 'LazyGit' },

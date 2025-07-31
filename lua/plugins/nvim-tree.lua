@@ -12,7 +12,7 @@ return {
     -- Set up the plugin with some recommended options.
     nvim_tree.setup {
       -- When you open a file, the tree will automatically close.
-      auto_close = true,
+      
       -- When you open a file, the tree will focus on that file.
       sync_root_with_cwd = true,
       -- Configuration for how the file tree is rendered.

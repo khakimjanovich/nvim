@@ -32,7 +32,7 @@ return {
 
     -- This sets up the language servers.
     lspconfig.intelephense.setup { on_attach = on_attach, capabilities = capabilities }
-    lspconfig.tsserver.setup { on_attach = on_attach, capabilities = capabilities }
+    lspconfig.ts_ls.setup { on_attach = on_attach, capabilities = capabilities }
     lspconfig.gopls.setup { on_attach = on_attach, capabilities = capabilities }
     lspconfig.jdtls.setup { on_attach = on_attach, capabilities = capabilities }
   end,
