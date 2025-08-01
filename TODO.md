@@ -8,10 +8,10 @@ This file tracks the plan to transform Neovim into a PHPStorm-like IDE.
 - [x] **Lua Language Support:** Installed and configured `lua-language-server`.
 - [x] **File Explorer:** Installed and configured `nvim-tree.lua`.
 - [x] **UI Icons:** Installed `nvim-web-devicons`.
-- [ ] **Colorscheme:** Install and configure `catppuccin`.
-- [ ] **Status Line:** Install and configure `lualine.nvim`.
-- [ ] **Buffer/Tab Management:** Install and configure `bufferline.nvim`.
-- [ ] **Keybinding Helper:** Install and configure `which-key.nvim`.
+- [x] **Colorscheme:** Install and configure `catppuccin`.
+- [x] **Status Line:** Install and configure `lualine.nvim`.
+- [x] **Buffer/Tab Management:** Install and configure `bufferline.nvim`.
+- [x] **Keybinding Helper:** Install and configure `which-key.nvim`.
 
 ---
 
