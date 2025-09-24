@@ -1,7 +1,7 @@
 return {
   {
     'adibhanna/laravel.nvim',
-    enabled = false,
+    enabled = true,
     -- dir = "~/Developer/opensource/laravel.nvim",
     ft = { 'php', 'blade' },
     dependencies = {

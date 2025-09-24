@@ -7,7 +7,7 @@ return {
     },
     {
         "olimorris/codecompanion.nvim",
-        enabled = false,
+        enabled = true,
         opts = {
             extensions = {
                 history = {
@@ -37,11 +37,14 @@ return {
                 },
             },
             adapters = {
-                copilot = function()
-                    return require("codecompanion.adapters").extend("copilot", {
+                anthropic = function()
+                    return require("codecompanion.adapters").extend("anthropic", {
+                        env = {
+                            api_key = "ANTHROPIC_API_KEY"
+                        },
                         schema = {
                             model = {
-                                default = "gemini-2.5-pro",
+                                default = "claude-3-5-sonnet-20241022",
                             },
                         },
                     })
@@ -70,13 +73,13 @@ return {
             require("codecompanion").setup({
                 strategies = {
                     chat = {
-                        adapter = "copilot",
+                        adapter = "anthropic",
                     },
                     inline = {
-                        adapter = "copilot",
+                        adapter = "anthropic",
                     },
                     cmd = {
-                        adapter = "copilot",
+                        adapter = "anthropic",
                     }
                 },
                 display = {
