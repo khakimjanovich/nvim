@@ -11,7 +11,7 @@ return {
         "typescript.tsx",
         -- "vue"
     },
-    root_markers = { "tsconfig.json", "jsconfig.json", "package.json", ".git" },
+    root_markers = { "tsconfig.json", "jsconfig.json", "package.json" },
     settings = {
         typescript = {
             -- Remove tsdk setting to allow auto-detection

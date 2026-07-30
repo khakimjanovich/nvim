@@ -68,3 +68,10 @@ vim.filetype.add({
         ["%.env%.[%w_.-]+"] = "dotenv",
     },
 })
+
+-- Folding
+-- vim.opt.foldmethod = "expr"
+-- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldmethod = "indent"
+vim.opt.foldenable = true -- Explicitly enable folding
+vim.opt.foldlevel = 99

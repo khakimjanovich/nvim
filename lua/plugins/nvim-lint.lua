@@ -7,10 +7,6 @@ return {
         -- Configure custom linters using Mason-managed tools
         local mason_bin_dir = vim.fn.stdpath("data") .. "/mason/bin"
 
-        -- Customize golangcilint to ignore exit codes (golangci-lint exits with code 1-3 when issues are found)
-        local golangcilint = require('lint').linters.golangcilint
-        golangcilint.ignore_exitcode = true
-
         -- Configure Laravel Pint for linting (using --test mode)
         local pint_cmd = vim.fn.executable(mason_bin_dir .. "/pint") == 1
             and mason_bin_dir .. "/pint"
@@ -47,8 +43,6 @@ return {
 
         -- Configure linters by filetype (using Mason-managed tools)
         lint.linters_by_ft = {
-            -- Go
-            go = { "golangcilint" },
 
             -- JavaScript/TypeScript
             javascript = { "eslint_d" },

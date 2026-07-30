@@ -1,15 +1,12 @@
 -- Mason PATH is handled by core.mason-path
 vim.lsp.enable({
     "lua-ls",
-    "gopls",
-    "zls",
     "ts-ls",
-    "rust-analyzer",
     "intelephense",
+    "laravel-lsp",
     "tailwindcss",
     "html-ls",
     "css-ls",
-    "vue-ls",
 })
 
 -- LSP servers are automatically managed by Mason

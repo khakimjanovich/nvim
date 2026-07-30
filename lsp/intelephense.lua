@@ -1,5 +1,3 @@
-local blink = require("blink.cmp")
-
 -- Commented out for free version usage
 -- local get_intelephense_license = function()
 --     local f = assert(io.open(os.getenv("HOME") .. "/intelephense/license.txt", "rb"))
@@ -11,7 +9,7 @@ local blink = require("blink.cmp")
 return {
     cmd = { "intelephense", "--stdio" },
     filetypes = { "php", "blade" },
-    root_markers = { "composer.json", ".git" },
+    root_markers = { "composer.json", "artisan" },
     init_options = {
         -- Using free version - license key commented out
         -- licenceKey = get_intelephense_license(),

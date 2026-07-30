@@ -91,4 +91,78 @@ M.copyFilePathAndLineNumber = function()
   end
 end
 
+-- Theme persistence functions
+M.get_theme_file_path = function()
+  return vim.fn.stdpath("config") .. "/lua/config/current_theme.lua"
+end
+
+M.save_theme = function(theme_name)
+  local theme_file = M.get_theme_file_path()
+  local content = string.format('return "%s"\n', theme_name)
+
+  local file = io.open(theme_file, "w")
+  if file then
+    file:write(content)
+    file:close()
+    return true
+  else
+    print("Error: Could not save theme preference")
+    return false
+  end
+end
+
+M.load_saved_theme = function()
+  local theme_file = M.get_theme_file_path()
+
+  -- Check if file exists
+  local file = io.open(theme_file, "r")
+  if not file then
+    return nil
+  end
+  file:close()
+
+  -- Load the theme name from file
+  local ok, theme_name = pcall(dofile, theme_file)
+  if ok and theme_name then
+    return theme_name
+  else
+    return nil
+  end
+end
+
+M.apply_theme = function(theme_name)
+  pcall(function()
+    vim.cmd.colorscheme(theme_name)
+  end)
+end
+
+-- Enhanced theme switcher function with persistence
+M.theme_switcher = function()
+  local themes = {
+    { name = "gruvbox-material", display = "Gruvbox Material" },
+    { name = "catppuccin", display = "Catppuccin" },
+    { name = "forest-night", display = "Forest Night" },
+    { name = "base16-ayu-mirage", display = "Base16 Ayu Mirage" },
+  }
+
+  vim.ui.select(themes, {
+    prompt = "Select a theme:",
+    format_item = function(item)
+      return item.display
+    end,
+  }, function(choice)
+    if choice then
+      -- Apply the theme
+      M.apply_theme(choice.name)
+
+      -- Save the preference
+      if M.save_theme(choice.name) then
+        print("Theme changed to: " .. choice.display .. " (saved for next session)")
+      else
+        print("Theme changed to: " .. choice.display .. " (not saved)")
+      end
+    end
+  end)
+end
+
 return M

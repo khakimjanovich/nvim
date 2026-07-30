@@ -93,3 +93,9 @@ vim.keymap.set("n", "<C-P>", ':lua require("config.utils").toggle_go_test()<CR>'
 vim.keymap.set("v", "<leader>ln", ':lua require("config.utils").get_highlighted_line_numbers()<CR>', opts)
 
 vim.keymap.set("n", "<Esc>", ":nohlsearch<CR>", opts)
+
+-- Quick switch to last file (like Ctrl+Tab in other editors)
+vim.keymap.set("n", ",,", "<C-^>", opts)
+
+-- Theme switcher
+vim.keymap.set("n", "<leader>th", ':lua require("config.utils").theme_switcher()<CR>', { desc = "Theme switcher" })

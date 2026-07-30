@@ -5,5 +5,9 @@ vim.filetype.add({
     [".envrc"] = "sh",
     ["*.env"] = "sh",
     ["*.envrc"] = "sh"
+  },
+  pattern = {
+    -- Laravel Blade templates (intelephense/tailwind/treesitter are wired for "blade")
+    [".*%.blade%.php"] = "blade",
   }
 })
