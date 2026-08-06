@@ -322,6 +322,15 @@ local function linter_status()
 
     return "󰁨 " .. table.concat(linters, ",")
 end
+local function file_icon()
+    local ok, mi = pcall(require, "mini.icons")
+    if not ok then
+        return ""
+    end
+    local ok_get, icon = pcall(mi.get, "file", vim.fn.expand("%:t"))
+    return ok_get and icon or ""
+end
+
 -- Safe wrapper functions for statusline
 local function safe_git_branch()
     local ok, result = pcall(git_branch)
@@ -343,6 +352,7 @@ local function safe_linter_status()
     return ok and result or ""
 end
 
+_G.file_icon = file_icon
 _G.git_branch = safe_git_branch
 _G.lsp_status = safe_lsp_status
 _G.formatter_status = safe_formatter_status
@@ -351,6 +361,7 @@ _G.linter_status = safe_linter_status
 -- THEN set the statusline
 vim.opt.statusline = table.concat({
     "%{v:lua.git_branch()}",       -- Git branch
+    "%{v:lua.file_icon()}",        -- Filetype icon
     "%f",                          -- File name
     "%m",                          -- Modified flag
     "%r",                          -- Readonly flag
